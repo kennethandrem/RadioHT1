@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JSlider;
 
-public class RadioGUI {
+public class RadioGUI{
 
 	private JFrame frame;
 	private JButton btnEncender;
@@ -150,7 +150,7 @@ public class RadioGUI {
 		frame.getContentPane().add(button_11);
 	}
 	
-	private class Botones implements ActionListener{
+	private class Botones implements ActionListener, IRadio{
 
 		@Override
 		public void actionPerformed(ActionEvent event) {
@@ -195,7 +195,7 @@ public class RadioGUI {
 					button_11.setEnabled(false);
 				}
 				
-			}else if (event.getSource().equals(btnAmFm)){
+			}else if (event.getSource().equals(btnAmFm))
 				if (lblAmFm.getText().equals("AM")){
 					lblAmFm.setText("FM");
 				}else {
@@ -203,7 +203,6 @@ public class RadioGUI {
 				}
 				
 			}
-		}
 		
 	}
 }

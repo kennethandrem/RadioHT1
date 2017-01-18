@@ -1,6 +1,6 @@
 package com.uvg;
 
-public abstract class Emisora implements IRadio{
+public class Emisora implements IRadio{
 
 	private String nombre;
 	private boolean fMaM;

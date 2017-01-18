@@ -23,9 +23,9 @@ public interface IRadio {
         return flag;
     }
 
-    public default void setEmisora(float[] emisoras, int index, float emisora){
+    public default float[] setEmisora(float[] emisoras, int index, float emisora){
         emisoras[index] = emisora;
-
+    return emisoras;
     }
 
     public default float getEmisora(float[] emisoras, int index){

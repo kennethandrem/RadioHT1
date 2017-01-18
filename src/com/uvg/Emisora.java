@@ -1,10 +1,16 @@
 package com.uvg;
 
-public class Emisora {
+public abstract class Emisora implements IRadio{
+
 	private String nombre;
 	private boolean fMaM;
 	private float numEstacion;
-	
+
+	public Emisora(String nombre, boolean fMaM, float numEstacion) {
+		this.nombre = nombre;
+		this.fMaM = fMaM;
+		this.numEstacion = numEstacion;
+	}
 	
 	
 	public String getNombre() {

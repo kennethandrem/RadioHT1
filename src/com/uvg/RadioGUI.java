@@ -78,11 +78,14 @@ public class RadioGUI{
 		lblAmFm.setBounds(249, 17, 56, 16);
 		frame.getContentPane().add(lblAmFm);
 		
-		slider = new JSlider();
+		int min = 530;
+		int max = 1610;
+		slider = new JSlider(min, max);
 		slider.setEnabled(false);
 		slider.setValue(0);
 		slider.setBounds(139, 142, 200, 26);
 		frame.getContentPane().add(slider);
+		
 		
 		lblRadioActual = new JLabel("New label");
 		lblRadioActual.setEnabled(false);

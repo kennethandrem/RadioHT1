@@ -3,7 +3,7 @@
 
 package com.uvg;
 
-public class Emisora implements IRadio{
+public class Emisora implements iRadio{
 
 	private String nombre;
 	private boolean fMaM;
@@ -33,6 +33,69 @@ public class Emisora implements IRadio{
 	}
 	public void setNumEstacion(float numEstacion) {
 		this.numEstacion = numEstacion;
+	}
+
+
+	@Override
+	public void OnOff() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public boolean isOn() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public String getFrecuency() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void changeFrecuency() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public String getStation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void Forward() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void Backward() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void setMemory(int Position) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public String ToString() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

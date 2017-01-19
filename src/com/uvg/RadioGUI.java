@@ -153,7 +153,7 @@ public class RadioGUI{
 		frame.getContentPane().add(button_11);
 	}
 	
-	private class Botones implements ActionListener, IRadio{
+	private class Botones implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent event) {

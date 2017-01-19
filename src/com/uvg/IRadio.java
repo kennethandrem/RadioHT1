@@ -1,41 +1,24 @@
-//Kenneth Martínez 16976
-//Gadhi Rodriguez 16206
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.uvg;
 
+
+import java.lang.String;
 /**
- * Created by kennek on 18/01/2017.
+ *
+ * @author OscarIvan
  */
-public interface IRadio {
-
-    default boolean status (boolean on){
-        on = !on;
-        return on;
-    }
-
-    default boolean frecuencia (boolean f){
-        f = !f;
-        return f;
-    }
-
-    default boolean limite (float emisora){
-        boolean flag = true;
-        if (emisora <= 107.9){
-            flag = false;
-        }
-        return flag;
-    }
-
-    default float[] setEmisora(float[] emisoras, int index, float emisora){
-        emisoras[index] = emisora;
-    return emisoras;
-    }
-
-    default float getEmisora(float[] emisoras, int index){
-        float emisora = emisoras[index];
-        return emisora;
-
-    }
-
-
+public interface iRadio {
+    public void OnOff();
+    public boolean isOn();
+    public String getFrecuency();
+    public void changeFrecuency();
+    public String getStation();   
+    public void Forward();
+    public void Backward();
+    public void setMemory(int Position);
+    public String ToString();
 }

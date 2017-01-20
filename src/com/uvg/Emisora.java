@@ -97,5 +97,19 @@ public class Emisora implements iRadio{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	@Override
+	public void setStation(String Station) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public String getMemory(int Position) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

@@ -91,7 +91,7 @@ public class Radio implements iRadio {
 
     @Override
     public void setMemory(int Position) {
-        if (Position > 0 && Position <12)            
+        if (Position >= 0 && Position <12)            
             Memorias[Position] = new MemoryBoton(frecuency, station);
     }
 
@@ -108,5 +108,16 @@ public class Radio implements iRadio {
         return sb.toString();
 
     }
+
+	@Override
+	public void setStation(String Station) {
+		this.station = Station;
+	}
+
+	@Override
+	public String getMemory(int Position) {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
 }

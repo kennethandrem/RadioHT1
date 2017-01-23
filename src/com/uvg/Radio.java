@@ -5,6 +5,8 @@
  */
 package com.uvg;
 import java.lang.String;
+import java.text.DecimalFormat;
+
 /**
  *
  * @author OscarIvan
@@ -52,6 +54,7 @@ public class Radio implements iRadio {
         return station;
     }
 
+    DecimalFormat decimales = new DecimalFormat("0.00");
     @Override
     public void Forward() {
         if (frecuency == "AM")

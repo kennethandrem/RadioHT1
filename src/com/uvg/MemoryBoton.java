@@ -9,7 +9,7 @@ package com.uvg;
  *
  * @author OscarIvan
  */
-public class MemoryBoton{
+public class MemoryBoton implements iBoton{
 
     String frecuency;
     String station; 
@@ -19,13 +19,21 @@ public class MemoryBoton{
         this.frecuency= frecuency;
         this.station = station;
     }
-    public String Push() {
-        return frecuency.concat("|").concat(station);
-    }
     
     public void Hold(String frecuency, String station) {
         this.frecuency = frecuency;
         this.station = station;
     }
+	@Override
+	public String PushFrequency() {
+		// TODO Auto-generated method stub
+		return frecuency;
+	}
+	@Override
+	public String PushStation() {
+		// TODO Auto-generated method stub
+		return station;
+	}
+
     
 }

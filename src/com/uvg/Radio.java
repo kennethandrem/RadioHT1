@@ -20,7 +20,8 @@ public class Radio implements iRadio {
     public Radio(){
         isOn = false;
         frecuency ="AM";
-        station = "530";    
+        station = "530";   
+        Memorias = new MemoryBoton[12];
         
     }
     
@@ -116,8 +117,11 @@ public class Radio implements iRadio {
 
 	@Override
 	public String getMemory(int Position) {
-		// TODO Auto-generated method stub
-		return null;
+		String memory = "";
+		if (Position >= 0 && Position <12){
+			memory = Memorias[Position].PushStation();
+		}
+		return memory;
 	}
     
 }

@@ -10,6 +10,7 @@ package com.uvg;
  * @author OscarIvan
  */
 public interface iBoton {
-    public String Push();
-    public void Hold();
+    public String PushFrequency();
+    public String PushStation();
+    public void Hold(String frecuency, String station);
 }

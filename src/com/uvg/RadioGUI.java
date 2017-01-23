@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JSlider;
 import javax.swing.border.BevelBorder;
 import javax.swing.event.ChangeEvent;
@@ -127,61 +128,73 @@ public class RadioGUI{
 		button.setEnabled(false);
 		button.setBounds(81, 209, 97, 25);
 		frame.getContentPane().add(button);
+		button.addActionListener(new Botones());
 		
 		button_1 = new JButton("2");
 		button_1.setEnabled(false);
 		button_1.setBounds(190, 209, 97, 25);
 		frame.getContentPane().add(button_1);
+		button_1.addActionListener(new Botones());
 		
 		button_2 = new JButton("3");
 		button_2.setEnabled(false);
 		button_2.setBounds(299, 209, 97, 25);
 		frame.getContentPane().add(button_2);
+		button_2.addActionListener(new Botones());
 		
 		button_3 = new JButton("4");
 		button_3.setEnabled(false);
 		button_3.setBounds(408, 209, 97, 25);
 		frame.getContentPane().add(button_3);
+		button_3.addActionListener(new Botones());
 		
 		button_4 = new JButton("5");
 		button_4.setEnabled(false);
 		button_4.setBounds(517, 209, 97, 25);
 		frame.getContentPane().add(button_4);
+		button_4.addActionListener(new Botones());
 		
 		button_5 = new JButton("6");
 		button_5.setEnabled(false);
 		button_5.setBounds(626, 209, 97, 25);
 		frame.getContentPane().add(button_5);
+		button_5.addActionListener(new Botones());
 		
 		button_6 = new JButton("7");
 		button_6.setEnabled(false);
 		button_6.setBounds(81, 244, 97, 25);
 		frame.getContentPane().add(button_6);
+		button_6.addActionListener(new Botones());
 		
 		button_7 = new JButton("8");
 		button_7.setEnabled(false);
 		button_7.setBounds(190, 244, 97, 25);
 		frame.getContentPane().add(button_7);
+		button_7.addActionListener(new Botones());
 		
 		button_8 = new JButton("9");
 		button_8.setEnabled(false);
 		button_8.setBounds(299, 244, 97, 25);
 		frame.getContentPane().add(button_8);
+		button_8.addActionListener(new Botones());
 		
 		button_9 = new JButton("10");
 		button_9.setEnabled(false);
 		button_9.setBounds(408, 244, 97, 25);
 		frame.getContentPane().add(button_9);
+		button_9.addActionListener(new Botones());
 		
 		button_10 = new JButton("11");
 		button_10.setEnabled(false);
 		button_10.setBounds(517, 247, 97, 25);
 		frame.getContentPane().add(button_10);
+		button_10.addActionListener(new Botones());
 		
 		button_11 = new JButton("12");
 		button_11.setEnabled(false);
 		button_11.setBounds(626, 247, 97, 25);
 		frame.getContentPane().add(button_11);
+		button_11.addActionListener(new Botones());
 		
 		btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.setEnabled(false);
@@ -277,49 +290,117 @@ public class RadioGUI{
 				
 			}else if (event.getSource().equals(btnSiguiente)){
 				if(radio.getFrecuency().equals("AM")){
-					slider.setValue(slider.getValue()+10);
+					if(slider.getValue() == slider.getMaximum()){
+						radio.setStation("530");
+						slider.setValue(530);
+					}else{
+						slider.setValue(slider.getValue()+10);
+					}
 				}else{
-					slider.setValue(slider.getValue()+2);
+					if(slider.getValue() == slider.getMaximum()){
+						radio.setStation("87.9");
+						slider.setValue(879);
+					}else{
+						slider.setValue(slider.getValue()+2);
+					}
 				}
 				
 			}else if (event.getSource().equals(btnAnterior)){
 				if(radio.getFrecuency().equals("AM")){
-					slider.setValue(slider.getValue()-10);
+					if(slider.getValue() == slider.getMinimum()){
+						radio.setStation("1610");
+						slider.setValue(1610);
+					}else{
+						slider.setValue(slider.getValue()-10);
+					}
 				}else{
-					slider.setValue(slider.getValue()-2);
+					if(slider.getValue() == slider.getMinimum()){
+						radio.setStation("107.9");
+						slider.setValue(1079);
+					}else{
+						slider.setValue(slider.getValue()-2);
+					}
 				}
 			}else if (event.getSource().equals(button)){
 				position = 0;
+				BuscarEstacion(position);
 			}else if (event.getSource().equals(button_1)){
 				position = 1;
+				BuscarEstacion(position);
 			}else if (event.getSource().equals(button_2)){
 				position = 2;
+				BuscarEstacion(position);
 			}else if (event.getSource().equals(button_3)){
 				position = 3;
+				BuscarEstacion(position);
 			}else if (event.getSource().equals(button_4)){
 				position = 4;
+				BuscarEstacion(position);
 			}else if (event.getSource().equals(button_5)){
 				position = 5;
+				BuscarEstacion(position);
 			}else if (event.getSource().equals(button_6)){
 				position = 6;
+				BuscarEstacion(position);
 			}else if (event.getSource().equals(button_7)){
 				position = 7;
+				BuscarEstacion(position);
 			}else if (event.getSource().equals(button_8)){
 				position = 8;
+				BuscarEstacion(position);
 			}else if (event.getSource().equals(button_9)){
 				position = 9;
+				BuscarEstacion(position);
 			}else if (event.getSource().equals(button_10)){
 				position = 10;
+				BuscarEstacion(position);
 			}else if (event.getSource().equals(button_11)){
 				position = 11;
-			}
-			
-			if(chckbxMemorizar.isSelected()){
-				radio.setMemory(position);
-			}else{
-				
+				BuscarEstacion(position);
 			}
 		
+		}
+	}
+	
+	private void BuscarEstacion(int position){
+		if(chckbxMemorizar.isSelected()){
+			radio.setMemory(position);
+			JOptionPane.showMessageDialog(frame, "Estacion Guardada en la memoria!");
+		}else{
+			try{
+				String station = radio.getMemory(position);
+				radio.setStation(station);
+				if(Double.parseDouble(station) % 2 == 0){
+					if(radio.getFrecuency().equals("FM")){
+						radio.changeFrecuency();
+						slider.setMaximum(1610);
+						slider.setMinimum(530);
+						slider.setValue(530);
+						slider.setMajorTickSpacing(100);
+						slider.setMinorTickSpacing(10);
+					}
+					lblAmFm.setText(radio.getFrecuency());
+					lblRadioActual.setText(radio.getStation());
+					slider.setValue(Integer.parseInt(radio.getStation()));
+				}else{
+					if(radio.getFrecuency().equals("AM")){
+						radio.changeFrecuency();
+						slider.setMaximum(1079);
+						slider.setMinimum(879);
+						slider.setValue(879);
+						slider.setMajorTickSpacing(10);
+						slider.setMinorTickSpacing(2);
+					}
+					lblAmFm.setText(radio.getFrecuency());
+					lblRadioActual.setText(radio.getStation());
+					slider.setValue((int) Double.parseDouble(radio.getStation())*10);
+				}
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(frame, "No existe ninguna estacion guardada en la radio selecionada!", "Error", JOptionPane.ERROR_MESSAGE);
+			}
+			
+			
+			
 		}
 	}
 	
@@ -345,10 +426,6 @@ public class RadioGUI{
 				lblRadioActual.setText(formato.format(Double.parseDouble(radio.getStation())));
 				
 			}
-			
-			System.out.println(radio.getStation());
-			
-			
 			
 		}
 
